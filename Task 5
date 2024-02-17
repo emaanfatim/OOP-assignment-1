@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Neighborhood {
+private:
+    struct House {
+        static const int MAX_PERSONS = 10;
+        int noOfPersons;
+        string persons[MAX_PERSONS];
+        int ages[MAX_PERSONS];
+
+        void information() {
+            cout << "Enter the number of persons in the house: ";
+            cin >> noOfPersons;
+            cin.ignore(); 
+            for (int i = 0; i < noOfPersons; i++) {
+                cout << "Enter name of person " << i + 1 << ": ";
+                getline(cin, persons[i]);
+                cout << "Enter age of person " << i + 1 << ": ";
+                cin >> ages[i];
+                cin.ignore(); 
+            }
+        }
+
+        void display() {
+            cout << "House Information:\n";
+            for (int i = 0; i < noOfPersons; i++) {
+                cout << "Person " << i + 1 << ": Name: " << persons[i] << ", Age: " << ages[i] << endl;
+            }
+        }
+    };
+
+    House houses[10]; // Array to store houses
+    int totalHouses;
+
+public:
+    Neighborhood() : totalHouses(0) {}
+
+    void addHouse() {
+        if (totalHouses < 10) {
+            cout << "Adding details for House " << totalHouses + 1 << ":" << endl;
+            houses[totalHouses].information();
+            totalHouses++;
+        }
+        else {
+            cout << "Neighborhood is full. Cannot add more houses." << endl;
+        }
+    }
+
+    void displayNeighborhood() {
+        cout << "Neighborhood Information:\n";
+        for (int i = 0; i < totalHouses; i++) {
+            cout << "House " << i + 1 << ":\n";
+            houses[i].display();
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    Neighborhood myNeighborhood;
+    char choice;
+
+    do {
+        cout << "Do you want to add a house? (y/n): ";
+        cin >> choice;
+        cin.ignore(); 
+        if (choice == 'y' || choice == 'Y') {
+            myNeighborhood.addHouse();
+        }
+    } while (choice == 'y' || choice == 'Y');
+
+    myNeighborhood.displayNeighborhood();
+
+    return 0;
+}
