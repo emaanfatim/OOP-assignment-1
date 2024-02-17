@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+
+class Person {
+public:
+    string name = "Emaan";
+    int age = 18;
+
+    void displayInformation() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+class Dog {
+public:
+    string name;
+    int age;
+    string breed;
+
+    Dog() {}
+
+    Dog(string dogName, string dogBreed, int dogAge) : name(dogName), breed(dogBreed), age(dogAge) {}
+
+    void displayInformation() {
+        cout << "Dog's name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "Dog's breed: " << breed << endl;
+    }
+};
+
+class House {
+public:
+    string houseno = "832";
+    int streetno = 52;
+
+    void displayInformation() {
+        cout << "House number is: " << houseno << endl;
+        cout << "Street number is: " << streetno << endl;
+    }
+};
+
+int main() {
+    Person person1;
+    person1.displayInformation();
+    cout << "----------------"<<endl;
+    Dog myDog("Tommy", "Beagle", 5);
+    myDog.displayInformation();
+    cout << "------------------"<<endl;
+
+    House myHouse;
+    myHouse.displayInformation();
+
+    return 0;
+}
