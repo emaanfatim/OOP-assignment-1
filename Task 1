@@ -1,0 +1,35 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Dog {
+public:
+	string name;
+	string breed;
+	int age;
+	void bark()
+	{
+		cout<< name <<" Says Woof!"<<endl;
+	}
+};
+class Person {
+public:
+	string name;
+	Dog pet;
+	void introducepet()
+	{
+		cout << "My dog's name is:" << pet.name << endl;
+		cout << "Breed's name is:" << pet.breed << endl;
+		cout << "Age:" << pet.age << endl;
+		pet.bark();
+	}
+};
+int main()
+{
+	Person person1;
+	person1.name = "Emaan";
+	person1.pet.name = "Tommy";
+	person1.pet.breed = "Beagle";
+	person1.pet.age = 5;
+	person1.introducepet();
+	return 0;
+}
