@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Vehicle {
+private:
+    string make;
+    string model;
+    int year;
+    int mileage; 
+
+public:
+    Vehicle(string mk, string mdl, int yr, int ml) : make(mk), model(mdl), year(yr), mileage(ml) {}
+  void setMake(string mk) {
+        make = mk;
+    }
+
+    void setModel(string mdl) {
+        model = mdl;
+    }
+
+    void setYear(int yr) {
+        year = yr;
+    }
+
+  
+    void setMileage(int ml) {
+        mileage = ml;
+    }
+
+   
+    void displayVehicleInfo() {
+        cout << "Make: " << make << ", Model: " << model << ", Year: " << year << ", Mileage: " << mileage << " miles" << endl;
+    }
+        bool needsService() {
+      
+        return mileage > 100000;
+    }
+};
+
+int main() {
+    
+    Vehicle myVehicle("Toyota", "Corolla", 2020, 50000);
+    myVehicle.displayVehicleInfo();
+
+    if (myVehicle.needsService()) {
+        cout << "This vehicle needs servicing." << endl;
+    }
+    else {
+        cout << "This vehicle does not need servicing at the moment." << endl;
+    }
+
+    
+    myVehicle.setModel("Camry");
+    myVehicle.setYear(2022);
+    myVehicle.setMileage(120000);
+    myVehicle.displayVehicleInfo();
+
+  
+    if (myVehicle.needsService()) {
+        cout << "This vehicle needs servicing." << endl;
+    }
+    else {
+        cout << "This vehicle does not need servicing at the moment." << endl;
+    }
+
+    return 0;
+}
