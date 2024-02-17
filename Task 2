@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Person {
+public:
+    string name;
+    int age;
+};
+
+class House {
+public:
+    int noofpersons;
+    const int MAX_PERSONS = 10; // Maximum number of persons in the house
+    Person persons[10];
+    
+
+    void information() {
+        cout << "Enter no of persons in house: ";
+        cin >> noofpersons;
+        for (int i = 0; i < noofpersons; i++) {
+            cout << "Enter name of person " << i + 1 << ": ";
+            cin >> persons[i].name;
+            cout << "Enter age of person " << i + 1 << ": ";
+            cin >> persons[i].age;
+        }
+    }
+
+    void display() {
+        cout << "House Information:\n";
+        for (int i = 0; i < noofpersons; i++) {
+            cout << "Person " << i + 1 << ": Name: " << persons[i].name << ", Age: " << persons[i].age << endl;
+        }
+    }
+};
+
+int main() {
+    House details;
+    details.information();
+    details.display();
+    return 0;
+}
